@@ -46,7 +46,7 @@ public:
 	float fPlayerA = 0.0f;  //player start rotation
 	float fFOV = 3.14159f / 4.0f; //field of view
 	float fDepth = 16.0f; //maximum rendering distance
-	float fSpeed = 5.0f;  //walking speed
+	float fSpeed = 0.05f;  //walking speed
 
 	//world map, # = wall, . = space
 	std::string map;

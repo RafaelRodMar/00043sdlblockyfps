@@ -1,5 +1,6 @@
 #include<SDL.h>
 #include<time.h>
+#include<chrono>
 #include "AssetsManager.h"
 #include "InputHandler.h"
 #include "game.h"
@@ -241,10 +242,9 @@ void Game::render() {
 	for(int ny = 0; ny < nScreenHeight; ny++)
 		for (int nx = 0; nx < nScreenWidth; nx++)
 		{
-			//screen[(ny + 1)*nScreenWidth + nx] = map[ny * nMapWidth + nx];
 			Uint8 cr = 255;
 			if (screen[ny*nScreenWidth + nx] == '#') cr = 255;
-			if (screen[ny*nScreenWidth + nx] == 'X') cr = 204;
+			if (screen[ny*nScreenWidth + nx] == 'x') cr = 204;
 			if (screen[ny*nScreenWidth + nx] == '.') cr = 102;
 			if (screen[ny*nScreenWidth + nx] == '-') cr = 51;
 			if (screen[ny*nScreenWidth + nx] == ' ') cr = 0;
