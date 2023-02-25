@@ -48,6 +48,10 @@ public:
 	float fDepth = 16.0f; //maximum rendering distance
 	float fSpeed = 5.0f;  //walking speed
 
+	//world map, # = wall, . = space
+	std::string map;
+	std::string screen;
+
 private:
 	Game();
 	static Game* s_pInstance;
