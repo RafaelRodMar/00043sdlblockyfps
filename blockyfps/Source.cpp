@@ -1,6 +1,7 @@
 #include<SDL.h>
 #include<time.h>
 #include<chrono>
+#include<iostream>
 #include "AssetsManager.h"
 #include "InputHandler.h"
 #include "game.h"
@@ -242,14 +243,26 @@ void Game::render() {
 	for(int ny = 0; ny < nScreenHeight; ny++)
 		for (int nx = 0; nx < nScreenWidth; nx++)
 		{
-			Uint8 cr = 255;
-			if (screen[ny*nScreenWidth + nx] == '#') cr = 255;
-			if (screen[ny*nScreenWidth + nx] == 'x') cr = 204;
-			if (screen[ny*nScreenWidth + nx] == '.') cr = 102;
-			if (screen[ny*nScreenWidth + nx] == '-') cr = 51;
-			if (screen[ny*nScreenWidth + nx] == ' ') cr = 0;
+			Uint8 cr = 0, cg = 0, cb = 0;
+			if (screen[ny*nScreenWidth + nx] == '#')
+				cr = 255;
+			else if (screen[ny*nScreenWidth + nx] == 'x')
+				cr = 204;
+			else if (screen[ny*nScreenWidth + nx] == '.')
+				cr = 102;
+			else if (screen[ny*nScreenWidth + nx] == '-')
+				cr = 51;
+			else if (screen[ny*nScreenWidth + nx] == ' ')
+				cr = 0;
+			/*else
+				std::cout << (int)screen[ny*nScreenWidth + nx] << std::endl;*/
 
-			SDL_SetRenderDrawColor(g_pRenderer, cr, 0, 0, 255);
+			if (screen[ny*nScreenWidth + nx] == -120) cr = 255;
+			if (screen[ny*nScreenWidth + nx] == -109) cr = 204;
+			if (screen[ny*nScreenWidth + nx] == -110) cr = 102;
+			if (screen[ny*nScreenWidth + nx] == -111) cr = 51;
+
+			SDL_SetRenderDrawColor(g_pRenderer, cr, cg, cb, 255);
 			SDL_Rect rect;
 			rect.x = nx * blockWidth;
 			rect.y = ny * blockHeight;
